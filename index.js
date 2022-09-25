@@ -42,9 +42,11 @@ let duplicateObjects = [
     "optedin": false
   }
 ]
-var withoutDuplicates = function(duplicates,key){
-  
-   console.log([...duplicates.reduce((map,item)=>map.set(item[key],item),new Map()).values()])
+
+var uniqueObjects = function(duplicates,key=""){
+  let filterBy = "";
+  filterBy = key ? key : "id";
+  console.log([...duplicates.reduce((map,item)=>map.set(item[filterBy],item),new Map()).values()])
 }
 
-withoutDuplicates(duplicateObjects,"name");
+uniqueObjects(duplicateObjects,"city");
